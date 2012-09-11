@@ -1,0 +1,32 @@
+ <script id="_tmplSubCategory" type="text/x-jsrender">
+            {{for #data tmpl="#_tmplSubCategoryTitle"/}}
+        </script>
+        <script type="text/x-jquery-tmpl" id="_tmplSubCategoryTitle">
+            <section>
+                <div class="SubCategoryTitle">
+                    <div>{{:Title()}}</div>
+                </div>
+                <ul>
+                  {{for Demos() tmpl="#_tmplDemo"/}}
+                 </ul>   
+            </section>
+        </script>
+        <script type="text/x-jquery-tmpl" id="_tmplDemo">
+            <li>
+               <div class="DemoList">
+                <div class="left DemoImage">
+                    <a href="detail.aspx?id={{:Id()}}">
+                        <img src=""/>
+                    </a>
+                </div>
+                    <div class="left demoDetail">
+                        <div><p class="demoTitle"><a href="detail.aspx?id={{:Id()}}" class="plainLink">{{:Title()}}</a></p><div>
+                        <div class="demoDescriptionWrapper"><p class="demoDescription">{{:Description()}}</p></div> 
+                        <div class="demoModelLink"><a href="detail.aspx?id={{:Id()}}" class="modelLink"><span>View Model</span></a></div>
+                    </div>
+               </div>
+            </li>
+            {{if #index%2 == 1 && #index+1 != #parent.data.length}}
+                </ul><ul>
+            {{/if}}
+        </script>
